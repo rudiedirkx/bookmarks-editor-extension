@@ -1,0 +1,14 @@
+{
+	"name": "Bookmarks editor",
+	"description": "Mass editor for bookmarks.",
+	"version": "1.0",
+
+	"permissions": [ "bookmarks" ],
+
+	"options_page": "options/options.html",
+
+	"icons": {
+		"128": "images/128x128.png"
+	},
+	"manifest_version": 2
+}

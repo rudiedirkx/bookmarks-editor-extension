@@ -1,0 +1,17 @@
+body.loading {
+	height: 99999px;
+}
+
+table {
+	width: 100%;
+}
+td.title {
+	width: 30%;
+}
+td.url {
+	width: 70%;
+}
+.title > input,
+.url > input {
+	width: 100%;
+}
