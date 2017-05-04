@@ -1,15 +1,16 @@
 
 function init() {
 
-	function flatten(tree) {
+	function flatten(tree, location = []) {
 		var items = [];
 		tree.forEach(function(item) {
 			if (item.url) {
+				item.location = location.join('/');
 				items.push(item);
 			}
 
 			if (item.children) {
-				items = items.concat(flatten(item.children));
+				items = items.concat(flatten(item.children, location.concat(item.title)));
 			}
 		});
 		return items;
@@ -61,6 +62,8 @@ function init() {
 	chrome.bookmarks.getTree(function(results) {
 		var items = flatten(results[0].children);
 
+		document.querySelector('#num-bookmarks').textContent = items.length;
+
 		bookmarks = items.reduce(function(list, item) {
 			list[item.id] = item;
 			return list;
@@ -69,6 +72,7 @@ function init() {
 		var html = items.map(function(item) {
 			return '' +
 				'<tr>' +
+					'<td class="location">' + _html(item.location) + '</td>' +
 					'<td class="title"><input data-name="title.' + item.id + '" value="' + _html(item.title) + '" /></td>' +
 					'<td class="url"><input data-name="url.' + item.id + '" value="' + _html(item.url) + '" /></td>' +
 				'</tr>';

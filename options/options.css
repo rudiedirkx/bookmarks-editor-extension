@@ -5,11 +5,15 @@ body.loading {
 table {
 	width: 100%;
 }
+td.location {
+	width: 20%;
+	font-family: monospace;
+}
 td.title {
-	width: 30%;
+	width: 20%;
 }
 td.url {
-	width: 70%;
+	width: 60%;
 }
 .title > input,
 .url > input {
