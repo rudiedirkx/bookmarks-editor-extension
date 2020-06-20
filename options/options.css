@@ -1,3 +1,10 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	--title-width: 35;
+}
 body.loading {
 	height: 99999px;
 }
@@ -5,15 +12,14 @@ body.loading {
 table {
 	width: 100%;
 }
-td.location {
-	width: 20%;
-	font-family: monospace;
+th {
+	text-align: left;
 }
 td.title {
-	width: 20%;
+	width: calc(var(--title-width) / 100 * 100%);
 }
 td.url {
-	width: 60%;
+	width: calc((100 - var(--title-width)) / 100 * 100%);
 }
 .title > input,
 .url > input {
